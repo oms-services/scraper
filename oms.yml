@@ -1,22 +1,24 @@
 oms: 1
-
 info:
   version: 1.0.0
   title: Scraper
   description: Retrieve the fully rendered HTML content via Scraper API.
   license:
     name: MIT
-    url: https://opensource.org/licenses/MIT
-
+    url: 'https://opensource.org/licenses/MIT'
+  contact:
+    name: Open Microservices
+    url: 'https://openmicroservices.org'
+    email: core@openmicroservices.org
 lifecycle:
   startup:
-    command: ['node', '/app/src/index.js']
-
+    command:
+      - node
+      - /app/src/index.js
 health:
   http:
     path: /health
     port: 8080
-
 actions:
   scrape:
     help: Retrieve the fully rendered HTML content via Scraper API.
@@ -34,11 +36,13 @@ actions:
         type: string
         required: false
         in: requestBody
-        help: Any random integer. Allows you to continue using the same proxy for each request with that session number. Send a new integer to create a new session.
+        help: >-
+          Any random integer. Allows you to continue using the same proxy for
+          each request with that session number. Send a new integer to create a
+          new session.
     output:
       contentType: application/json
       type: map
-
 environment:
   SCRAPER_API_KEY:
     type: string
@@ -46,5 +50,5 @@ environment:
     help: API Key provided by ScraperAPI
   SCRAPER_API_ORIGIN:
     type: string
-    default: http://api.scraperapi.com
+    default: 'http://api.scraperapi.com'
     help: API URL provided by ScraperAPI
