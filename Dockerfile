@@ -1,4 +1,4 @@
-FROM        node:10-alpine
+FROM        node:16-alpine
 
 RUN         mkdir /app
 COPY        package.json package-lock.json /app/
